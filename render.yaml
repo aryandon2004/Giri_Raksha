@@ -1,0 +1,29 @@
+services:
+  # 1. Giri Raksha Node.js / Express / Socket.IO API Backend
+  - type: web
+    name: giri-raksha-server
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+        # Paste your MongoDB Atlas connection string in Render Dashboard
+
+  # 2. Giri Raksha Python FastAPI Random Forest Inference Service
+  - type: web
+    name: giri-raksha-ml
+    runtime: python
+    rootDir: ml-service
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12

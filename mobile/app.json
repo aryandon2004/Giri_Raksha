@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "Giri Raksha",
+    "slug": "giri-raksha",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0B132B"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Giri Raksha uses your location to alert you of nearby landslide risks and to geo-tag hazard reports.",
+        "NSCameraUsageDescription": "Giri Raksha uses your camera to capture evidence of slope cracks, rockfalls, and road blockages."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0B132B"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Giri Raksha to determine your location for localized landslide risk alerts."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app needs access to your photos to attach evidence to hazard reports."
+        }
+      ],
+      "expo-asset"
+    ]
+  }
+}
